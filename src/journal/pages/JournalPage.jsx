@@ -1,13 +1,24 @@
-
-import {JournalLayout} from '../layout'  
-import { NothingSelectedView, NoteView }from '../views'
+import { IconButton } from '@mui/material';
+import {JournalLayout} from '../layout';  
+import { NothingSelectedView, NoteView }from '../views';
+import { AiOutlinePlus } from "react-icons/ai";
 
 export const JournalPage = () => {
   return (
     <JournalLayout>
-   <NoteView/>
-    {/*<Typography>
-      There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined  </Typography>*/}
+   <NothingSelectedView/>
+  <IconButton
+    size='medium'
+    sx={{
+      color: 'white',
+      backgroundColor:'error.main',
+      ':hover':{backgroundColor: 'error.main', opacity: 0.9},
+      position:'fixed',
+      right:50,
+      bottom:50
+    }}>
+    <AiOutlinePlus/>
+  </IconButton>
 
     </JournalLayout>
   )
