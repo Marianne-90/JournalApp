@@ -18,8 +18,8 @@ export const LoginPage = () => {
 
   const { email, password, onInputChange, formState } = useForm(
     {
-      email: 'mail@mail.com',
-      password: '123456'
+      email: '',
+      password: ''
     }
   );
 
