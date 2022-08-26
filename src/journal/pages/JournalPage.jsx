@@ -3,19 +3,24 @@ import {JournalLayout} from '../layout';
 import { NothingSelectedView, NoteView }from '../views';
 import { AiOutlinePlus } from "react-icons/ai";
 import { StartNewNote } from '../../store';
-import { useDispatch }  from 'react-redux'
+import { useDispatch, useSelector }  from 'react-redux'
 export const JournalPage = () => {
 
   const dispatch = useDispatch();
+
+  const { isSaving, active } = useSelector(state => state.journal);
   
   const onClickNewNote = () => {
     dispatch(StartNewNote() );
   };
   
   return (
-    <JournalLayout>
-   <NothingSelectedView/>
+    <JournalLayout> 
+      
+   {!active ?<NothingSelectedView/> : <NoteView/>}
+      
   <IconButton
+    disabled = {isSaving}
     onClick={ onClickNewNote }
     size='medium'
     sx={{
