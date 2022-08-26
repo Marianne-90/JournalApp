@@ -3,6 +3,12 @@ import { AiOutlineMenu, AiOutlineLogout } from "react-icons/ai";
 
 
 export const Navbar = ({drawerWidth = 240}) => {
+
+  const onLogout  = () => {
+    console.log('log out')
+  }
+
+  
   return (
     <AppBar 
       position='fixed'
@@ -24,7 +30,7 @@ export const Navbar = ({drawerWidth = 240}) => {
               <Typography variant='h6' 
                 noWrap component='div'>JournalApp</Typography>
 
-          <IconButton color='error' edge='end'>
+          <IconButton onClick={onLogout} color='error' edge='end'>
             <AiOutlineLogout/>
           </IconButton>
           

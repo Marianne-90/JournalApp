@@ -1,8 +1,11 @@
-
+import { useSelector } from 'react-redux';
 import {Drawer, Box, Toolbar, Typography, Divider, List, ListItem, ListItemButton, ListItemIcon, Grid, ListItemText} from "@mui/material";
 import { AiOutlineFileText } from "react-icons/ai";
 
 export const Sidebar = ({drawerWidth = 240}) =>{
+
+  const { displayName } = useSelector(state => state.auth);
+  
   return (
     <Box
       component='nav'
@@ -19,7 +22,7 @@ export const Sidebar = ({drawerWidth = 240}) =>{
         }}>
         <Toolbar>
           <Typography variant='h6' noWrap component='div'>
-            Marianne Garrido
+            {displayName}
           </Typography>
         </Toolbar>
         <Divider/>

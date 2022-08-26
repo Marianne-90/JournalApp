@@ -3,16 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Link as RouterLink } from 'react-router-dom';
 
-import { Grid, Typography, TextField, Button, Link } from "@mui/material";
+import { Grid, Typography, TextField, Button, Link, Alert } from "@mui/material";
 
 import { AuthLayout } from '../layout';
 import { useForm } from '../../hooks';
 
-import { chekingAuthentication, startGoogleSignIn } from '../../store';
+import {  startGoogleSignIn, startLoginWithEmailPassword } from '../../store';
 
 export const LoginPage = () => {
 
-  const { status } = useSelector(state => state.auth);
+  const { status, errorMessage} = useSelector(state => state.auth);
 
   const dispach = useDispatch();
 
@@ -27,9 +27,9 @@ export const LoginPage = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log({ email, password });
-    dispach(chekingAuthentication());
-  }
+
+    dispach(startLoginWithEmailPassword({ email, password }));
+  } 
 
   const onGoogleSignIn = () => {
     console.log('on google sign in')
@@ -89,6 +89,12 @@ export const LoginPage = () => {
               </Button>
             </Grid>
 
+            
+            <Grid item xs={12} display={!!errorMessage?'':'none'}>
+           <Alert severity='error' >
+          { errorMessage }
+           </Alert>
+           </Grid>
 
             <Grid container direction='row' justifyContent='end' sx={{ mt: 2 }}>
 
