@@ -14,6 +14,7 @@ export const NothingSelectedView = () => {
         backgroundColor: 'primary.main',
         borderRadius:3,
       }}
+      className='animate__animated animate__fadeIn animate__faster'
     >
       <Grid item xs={12}>
         <AiOutlineQq className='icon'/>

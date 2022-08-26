@@ -11,14 +11,16 @@ export const useCheckAuth = () => {
   const distpach = useDispatch();
 
   useEffect(() => {
+        
+        onAuthStateChanged( FirebaseAuth, async( user ) => {
+        if ( !user ) return distpach( logout() );
 
-    onAuthStateChanged(FirebaseAuth, async (user) => {
-      if (!user) return distpach(logout({errorMessage}));
-      const { uid, email, displayName, photoURL } = user;
-      distpach(login({uid, email, displayName, photoURL}));
-    })
+        const { uid, email, displayName, photoURL } = user;
+        distpach( login({ uid, email, displayName, photoURL }) );
+        })
+    }, []);
 
-  }, []);
+  
 
   return {status};
 }
