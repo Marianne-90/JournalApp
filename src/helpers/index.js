@@ -1,1 +1,4 @@
-export * from './loadNotes'
+export * from './loadNotes';
+export * from './fileUpLoad';
+
+

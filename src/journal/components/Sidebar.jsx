@@ -1,5 +1,5 @@
   import { useSelector } from 'react-redux';
-import {Drawer, Box, Toolbar, Typography, Divider, List, ListItem, ListItemButton, ListItemIcon, Grid, ListItemText} from "@mui/material";
+import {Drawer, Box, Toolbar, Typography, Divider, List} from "@mui/material";
 import { SideBarItem } from './'
 
 export const Sidebar = ({drawerWidth = 240}) =>{

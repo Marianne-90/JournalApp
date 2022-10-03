@@ -1,13 +1,14 @@
 import { checkingCredentials, logout, login } from './authSlice';
-import { singInWithGoogle, registerUserWithEmailPassword, loginWithEmailPassword, logoutFirebase  } from '../../firebase/providers';
+import { singInWithGoogle, registerUserWithEmailPassword, loginWithEmailPassword, logoutFirebase } from '../../firebase/providers';
+import { clearNotesLogout } from '../journal';
 
-export const chekingAuthentication = (email, password) => {
+export const chekingAuthentication = () => {
   return async (dispatch) => {
     dispatch(checkingCredentials());
   }
 }
 
-export const startGoogleSignIn = (email, password) => {
+export const startGoogleSignIn = () => {
   return async (dispatch) => {
 
     dispatch(checkingCredentials());
@@ -48,7 +49,7 @@ export const startLogout = () => {
     return async( dispatch ) => {
         
         await logoutFirebase();
-
+        dispatch(clearNotesLogout())
         dispatch( logout() );
 
     }
